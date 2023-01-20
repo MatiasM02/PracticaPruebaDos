@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>catalogo</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row *ngFor="let p of this.api.obtenerProductos()?.products" [routerLink]="['/detalle-productos']" [queryParams]="{title: p.title, price: p.price, descuento: p.discountPercentage, rating: p.rating, stock: p.stock, brand: p.brand, category: p.category, description: p.description, images: p.images}">
+      <ion-col>
+        <ion-card>
+          <img [src]="p.thumbnail">
+          <ion-card-header>
+            <ion-card-title class="ion-text-center">{{p.title}}</ion-card-title>
+            <ion-card-subtitle>Price: ${{p.price}}</ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-card-content>
+            <ion-label>Categoria: {{p.category}}</ion-label>
+            <hr>
+            <ion-label>Valoracion: {{p.rating}}</ion-label>
+            <hr>
+            <ion-label>Descuento: {{p.discountPercentage}}</ion-label>
+            <hr>
+            <p>Descripcion: {{p.description}}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

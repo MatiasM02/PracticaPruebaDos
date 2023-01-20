@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Detalle Productos</ion-title>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-button fill="clear" [routerLink]="['/catalogo']"><ion-icon name="chevron-back-outline"></ion-icon>volver</ion-button>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <ion-card>
+          <ion-slides>
+            <ion-slide *ngFor="let i of images">
+              <img [src]="i">
+            </ion-slide>
+          </ion-slides>
+          <ion-card-header>
+            <ion-card-title>{{title}}</ion-card-title>
+            <ion-card-subtitle>Price ${{price}}</ion-card-subtitle>
+          </ion-card-header>
+
+          <ion-card-content>
+            <ion-label>Categoria: {{category}}</ion-label>
+            <hr>
+            <ion-label>Descuento: {{descuento}}</ion-label>
+            <hr>
+            <ion-label>Rating: {{rating}}</ion-label>
+            <hr>
+            <ion-label>Stock: {{stock}}</ion-label>
+            <hr>
+            <ion-label>Marca: {{brand}}</ion-label>
+            <hr>
+            <p>Descripcion: {{description}} </p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+</ion-content>
